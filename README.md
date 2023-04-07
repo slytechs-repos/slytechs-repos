@@ -1,7 +1,7 @@
 ## Network Packet Capture in Java
 Welcome to Sly Technologies main repo. 
 
-Here you will find the following libraries that you can use to build your specialized networking apps and do it all in your favorite Java environment. Our libraries use either Apache v2 or Sly Techs Free license, meaning there is no cost to you for using our software under the terms of the licenses!
+Here you will find the following libraries that you can use to build your specialized networking apps and do it all in your favorite Java environment. Our libraries use either [Apache v2](https://www.apache.org/licenses/LICENSE-2.0) or [Sly Techs Free License](https://www.slytechs.com/licensing), meaning there is no cost to you for using our software under the terms of the licenses!
 
 Feature highlights with what you can do.
 
@@ -26,6 +26,14 @@ Both of the APIs listed below use the same **Protocol Packs** and at least one o
 ### jNetWorks API (Examples coming soon!)
 **jNetWorks** provides a more sophisticated API and significantly higher performance for multi-CPU packet capture with support for hardware acceleration. You can chosee to use a simple **libpcap** extension or **Napatech SmartNIC** drivers to hardware accelerate network capture and IPF processing. Perfomance using **jNetWorks** is suitable for traffic rates upto 100Gbps with **SmartNICs**. You can configure capture and spread the load of processing the data onto multiple-CPUs in your system, with zero-copy from the NICs to your application thread.
 
+## Contact Us
+If you have any questions, please contact us. We're happy to assist you:
+
+**Email:** [sales@slytechs.com](mailto:sales@slytechs.com)
+
+**Phone:** 1-315-930-0939 (US NY)
+
+**Contact Form:** [www.slytechs.com](http://www.slytechs.com) - contact form at the bottom of each page
 <!--
 **slytechs-repos/slytechs-repos** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
