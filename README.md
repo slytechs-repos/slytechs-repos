@@ -27,7 +27,7 @@ Both of the APIs listed below use the same **Protocol Packs** and at least one o
 **jNetWorks** provides a more sophisticated API and significantly higher performance for multi-CPU packet capture with support for hardware acceleration. You can chosee to use a simple **libpcap** extension or **Napatech SmartNIC** drivers to hardware accelerate network capture and IPF processing. Perfomance using **jNetWorks** is suitable for traffic rates upto 100Gbps (1/10/25/40/100Gbps) with **SmartNICs**. You can configure capture and spread the load of processing the data onto multiple-CPUs in your system, with zero-copy from the NICs to your application thread.
 
 ## Contact Us
-If you have any questions, please contact us. We're happy to assist you:
+If you have any questions, please contact us.
 
 **Email:** [sales@slytechs.com](mailto:sales@slytechs.com)
 
