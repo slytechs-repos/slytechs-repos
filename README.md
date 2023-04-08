@@ -5,12 +5,13 @@ Here you will find the following libraries that you can use to build your specia
 
 Feature highlights with what you can do.
 
-- Capture and transmit network packets
-- Dissect captured packets and use high level API to access headers and data
-- IP fragmentation reassembly and tracking
-- TCP/UDP/SCTP/QUIC stream reassembly
-- HTTP dechunking and decompression
-- TLS decryption
+- Capture and transmit network packets (**jNetWorks**, **jNetPcap v2**, **jNetPcap Pro**)
+- Dissect captured packets and use high level API to access headers and data (**jNetWorks**, **jNetPcap Pro**)
+- IP fragmentation reassembly and tracking (**jNetWorks**, **jNetPcap Pro**)
+- TCP/UDP/SCTP/QUIC stream reassembly (**jNetWorks**)
+- HTTP dechunking and decompression (**jNetWorks**)
+- TLS decryption (**jNetWorks**)
+- Multi-adapter, multi-port and multi-CPU processing and distribution (**jNetworks**)
 - and much more...
 
 Our libraries support both **libpcap** and **Napatech SmartNIC** hardware accelerators for high speed network caputure.
