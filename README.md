@@ -16,15 +16,15 @@ Feature highlights with what you can do.
 
 Our libraries support both **libpcap** and **Napatech SmartNIC** hardware accelerators for high speed network caputure.
 
-## Getting Started
-To get started you need to select the main API you wish to use. We offer 2 different APIs depending on your needs. Which ever API you choose the **Protocol Packs** which offer protocol specific APIs such as protocol headers, packet dissection, data reassembly, tracking and analysis, need to be included in addition to that main API modules (ie. **jnetpcap-pro** or **jnetworks**.)
-
-Both of the APIs listed below use the same **Protocol Packs** and at least one of the main APIs needs to be chosen. The **Protocol Packs** do not function on their own. To get protocol level support the [**core-protocols**](https://github.com/slytechs-repos/core-protocols) module is required at minimum.
-
 ## Download the bundle
 To make it easy to get all the prerequisite modules, we've bundled everything for your convenience.
 
 Download the bundle [**jNetPcap Pro v0.9 (JDK19)**](https://github.com/slytechs-repos/slytechs-repos/releases/tag/v0.9) 
+
+## Getting Started
+To get started you need to select the main API you wish to use. We offer 2 different APIs depending on your needs. Which ever API you choose the **Protocol Packs** which offer protocol specific APIs such as protocol headers, packet dissection, data reassembly, tracking and analysis, need to be included in addition to that main API modules (ie. **jnetpcap-pro** or **jnetworks**.)
+
+Both of the APIs listed below use the same **Protocol Packs** and at least one of the main APIs needs to be chosen. The **Protocol Packs** do not function on their own. To get protocol level support the [**core-protocols**](https://github.com/slytechs-repos/core-protocols) module is required at minimum.
 
 ### jNetPcap Pro API (See examples: [jnetpcap-examples](https://github.com/slytechs-repos/jnetpcap-examples))
 **jNetPcap Pro** provides a simple, single threaded API very similar to the way that native **libpcap** API works, with some extensions for enabling IPF reassembly and support for protocol services (MAC OUI table lookups, IP address resolution, hexdumps, etc..)
