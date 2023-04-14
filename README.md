@@ -29,6 +29,13 @@ Both of the APIs listed below use the same **Protocol Packs** and at least one o
 ### jNetPcap Pro API (See examples: [jnetpcap-examples](https://github.com/slytechs-repos/jnetpcap-examples))
 **jNetPcap Pro** provides a simple, single threaded API very similar to the way that native **libpcap** API works, with some extensions for enabling IPF reassembly and support for protocol services (MAC OUI table lookups, IP address resolution, hexdumps, etc..)
 
+Here is the shortest, fully functional pcap program you can write to read packets from a capture file:
+```java
+try (var pcap = PcapPro.openOffline(PCAP_FILE)) {
+	pcap.loop(0, System.out::println);
+}
+```
+
 ### jNetWorks API (Examples coming soon!)
 **jNetWorks** provides a more sophisticated API and significantly higher performance for multi-CPU packet capture with support for hardware acceleration. You can chosee to use a simple **libpcap** extension or **Napatech SmartNIC** drivers to hardware accelerate network capture and IPF processing. Perfomance using **jNetWorks** is suitable for traffic rates upto 100Gbps (1/10/25/40/100Gbps) with **SmartNICs**. You can configure capture and spread the load of processing the data onto multiple-CPUs in your system, with zero-copy from the NICs to your application thread.
 
