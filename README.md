@@ -21,6 +21,11 @@ To get started you need to select the main API you wish to use. We offer 2 diffe
 
 Both of the APIs listed below use the same **Protocol Packs** and at least one of the main APIs needs to be chosen. The **Protocol Packs** do not function on their own. To get protocol level support the [**core-protocols**](https://github.com/slytechs-repos/core-protocols) module is required at minimum.
 
+## Download the bundle
+To make it easy to get all the prerequisite modules, we've bundled everything for your convenience.
+
+Download the bundle [**jNetPcap Pro v0.9 (JDK19)**](https://github.com/slytechs-repos/slytechs-repos/releases/tag/v0.9) 
+
 ### jNetPcap Pro API (See examples: [jnetpcap-examples](https://github.com/slytechs-repos/jnetpcap-examples))
 **jNetPcap Pro** provides a simple, single threaded API very similar to the way that native **libpcap** API works, with some extensions for enabling IPF reassembly and support for protocol services (MAC OUI table lookups, IP address resolution, hexdumps, etc..)
 
