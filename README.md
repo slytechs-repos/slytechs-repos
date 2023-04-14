@@ -32,8 +32,14 @@ Both of the APIs listed below use the same **Protocol Packs** and at least one o
 Here is the shortest, fully functional pcap program you can write to read packets from a capture file:
 ```java
 try (var pcap = PcapPro.openOffline(PCAP_FILE)) {
-	pcap.loop(0, System.out::println);
+	pcap.loop(3, System.out::println);
 }
+```
+Produces output:
+```
+Packet [#0: caplen=54, timestamp=2023-04-13 14:00:19.646005000]
+Packet [#1: caplen=92, timestamp=2023-04-13 14:00:19.718989000]
+Packet [#2: caplen=395, timestamp=2023-04-13 14:00:20.562253000]
 ```
 
 ### jNetWorks API (Examples coming soon!)
