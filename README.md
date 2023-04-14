@@ -19,7 +19,7 @@ Our libraries support both **libpcap** and **Napatech SmartNIC** hardware accele
 ## Download the bundle
 To make it easy to get all the prerequisite modules, we've bundled everything for your convenience.
 
-Download the bundle [**jNetPcap Pro v0.9 (JDK19)**](https://github.com/slytechs-repos/slytechs-repos/releases/tag/v0.9) 
+Download the bundle [**jNetPcap Pro**](https://github.com/slytechs-repos/slytechs-repos/releases) 
 
 ## Getting Started
 To get started you need to select the main API you wish to use. We offer 2 different APIs depending on your needs. Which ever API you choose the **Protocol Packs** which offer protocol specific APIs such as protocol headers, packet dissection, data reassembly, tracking and analysis, need to be included in addition to that main API modules (ie. **jnetpcap-pro** or **jnetworks**.)
