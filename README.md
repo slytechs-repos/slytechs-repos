@@ -14,7 +14,7 @@ Feature highlights with what you can do.
 - Multi-adapter, multi-port and multi-CPU processing and distribution ([**jNetWorks**][jnetworks])
 - and much more...
 
-Our libraries support both **libpcap** and **Napatech SmartNIC** hardware accelerators for high speed network caputure.
+Our libraries support both **libpcap** and [**Napatech SmartNIC**][jntapi] hardware accelerators for high speed network caputure.
 
 ## Download the bundle
 To make it easy to get all the prerequisite modules, we've bundled everything for your convenience.
