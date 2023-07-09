@@ -45,6 +45,12 @@ Packet [#2: caplen=395, timestamp=2023-04-13 14:00:20.562253000]
 ### jNetWorks API (Examples coming soon!)
 [**jNetWorks**][jnetworks] provides a more sophisticated API and significantly higher performance for multi-CPU packet capture with support for hardware acceleration. You can chosee to use a simple **libpcap** extension or [**Napatech SmartNIC**][jntapi] drivers to hardware accelerate network capture and IPF processing. Perfomance using [**jNetWorks**][jnetworks] is suitable for traffic rates upto 100Gbps (1/10/25/40/100Gbps) with **SmartNICs**. You can configure capture and spread the load of processing the data onto multiple-CPUs in your system, with zero-copy from the NICs to your application thread.
 
+## Roadmap
+
+For latest information about future and current software releases, please see the software release wiki page:
+
+[Software release roadmap][roadmap]
+
 ## Contact Us
 If you have any questions, please contact us.
 
@@ -77,3 +83,4 @@ Here are some ideas to get you started:
 [jnetworks]: http://slytechs.com/jnetworks
 [jntapi]: https://www.slytechs.com/jnapatech
 [core-protocols]: https://github.com/slytechs-repos/core-protocols
+[roadmap]: https://github.com/slytechs-repos/slytechs-repos/wiki
