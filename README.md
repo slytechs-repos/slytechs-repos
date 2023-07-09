@@ -37,9 +37,9 @@ try (var pcap = PcapPro.openOffline(PCAP_FILE)) {
 ```
 Produces output:
 ```
-Packet [#0: caplen=54, timestamp=2023-04-13 14:00:19.646005000]
-Packet [#1: caplen=92, timestamp=2023-04-13 14:00:19.718989000]
-Packet [#2: caplen=395, timestamp=2023-04-13 14:00:20.562253000]
+Packet [#1: caplen=54, timestamp=2023-04-13 14:00:19.646005000]
+Packet [#2: caplen=92, timestamp=2023-04-13 14:00:19.718989000]
+Packet [#3: caplen=395, timestamp=2023-04-13 14:00:20.562253000]
 ```
 
 ### jNetWorks API (Examples coming soon!)
