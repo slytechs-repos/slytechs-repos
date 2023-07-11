@@ -83,4 +83,4 @@ Here are some ideas to get you started:
 [jnetworks]: http://slytechs.com/jnetworks
 [jntapi]: https://www.slytechs.com/jnapatech
 [core-protocols]: https://github.com/slytechs-repos/core-protocols
-[roadmap]: https://github.com/slytechs-repos/slytechs-repos/wiki
+[roadmap]: https://github.com/slytechs-repos/slytechs-repos/wiki/2.-Software-Release-Schedule
