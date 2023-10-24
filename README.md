@@ -5,9 +5,9 @@ Here you will find the following libraries that you can use to build your specia
 
 Feature highlights with what you can do.
 
-- Capture and transmit network packets ([**jNetWorks**][jnetworks], [**jNetPcap**][jnetpcap-v2], [**jNetPcap Pro**][jnetpcap-pro] + [**Protocols**][core-protocols])
-- Dissect captured packets and use high level API to access headers and data ([**jNetWorks**][jnetworks], [**jNetPcap Pro**][jnetpcap-pro] + [**Protocols**][core-protocols])
-- IP fragmentation reassembly and tracking ([**jNetWorks**][jnetworks], [**jNetPcap Pro**][jnetpcap-pro] + [**Protocols**][core-protocols])
+- Capture and transmit network packets ([**jNetWorks**][jnetworks] + [**Protocols**][core-protocols], [**jNetPcap Pro**][jnetpcap-pro] + [**Protocols**][core-protocols], [**jNetPcap**][jnetpcap-v2])
+- Dissect captured packets and use high level API to access headers and data ([**jNetWorks**][jnetworks] + [**Protocols**][core-protocols], [**jNetPcap Pro**][jnetpcap-pro] + [**Protocols**][core-protocols])
+- IP fragmentation reassembly and tracking ([**jNetWorks**][jnetworks] + [**Protocols**][core-protocols], [**jNetPcap Pro**][jnetpcap-pro] + [**Protocols**][core-protocols])
 - TCP/UDP/SCTP/QUIC stream reassembly ([**jNetWorks**][jnetworks] + [**Protocols**][core-protocols])
 - HTTP dechunking and decompression ([**jNetWorks**][jnetworks] + [**Protocols**][core-protocols])
 - TLS decryption ([**jNetWorks**][jnetworks] + [**Protocols**][core-protocols])
