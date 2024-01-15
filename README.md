@@ -5,7 +5,7 @@ Here you will find the following libraries that you can use to build your specia
 
 Feature highlights with what you can do.
 
-- Capture and transmit network packets ([**jNetWorks**][jnetworks] + [**Protocols**][core-protocols], [**jNetPcap Pro**][jnetpcap-pro] + [**Protocols**][core-protocols], [**jNetPcap**][jnetpcap-v2])
+- Capture and transmit network packets ([**jNetWorks SDK**][jnetworks], [**jNetPcap SDK**][jnetpcap-pro])
 - Dissect captured packets and use high level API to access headers and data ([**jNetWorks**][jnetworks] + [**Protocols**][core-protocols], [**jNetPcap Pro**][jnetpcap-pro] + [**Protocols**][core-protocols])
 - IP fragmentation reassembly and tracking ([**jNetWorks**][jnetworks] + [**Protocols**][core-protocols], [**jNetPcap Pro**][jnetpcap-pro] + [**Protocols**][core-protocols])
 - TCP/UDP/SCTP/QUIC stream reassembly ([**jNetWorks**][jnetworks] + [**Protocols**][core-protocols])
@@ -14,7 +14,7 @@ Feature highlights with what you can do.
 - Multi-adapter, multi-port and multi-CPU processing and distribution ([**jNetWorks**][jnetworks] + [**Protocols**][core-protocols])
 - and much more...
 
-Our libraries support both **libpcap** and [**Napatech SmartNIC**][jntapi] hardware accelerators for high speed network caputure.
+Our libraries support both **libpcap** and [**Napatech SmartNIC**][jnetntapi] hardware accelerators for high speed network caputure.
 
 ## Download the bundle
 To make it easy to get all the prerequisite modules, we've bundled everything for your convenience.
@@ -81,6 +81,6 @@ Here are some ideas to get you started:
 [jnetpcap-pro-download]: https://github.com/slytechs-repos/slytechs-repos/releases
 [jnetpcap-examples]: https://github.com/slytechs-repos/jnetpcap-examples
 [jnetworks]: http://slytechs.com/jnetworks
-[jntapi]: https://www.slytechs.com/jnapatech
+[jnetntapi]: https://www.slytechs.com/jnetntapi
 [core-protocols]: https://github.com/slytechs-repos/core-protocols
 [roadmap]: https://github.com/slytechs-repos/slytechs-repos/wiki/2.-Software-Release-Schedule
