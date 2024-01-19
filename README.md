@@ -5,7 +5,7 @@ Here you will find the following libraries that you can use to build your specia
 
 Feature highlights with what you can do.
 
-- Capture and transmit network packets ([**jNetWorks SDK**][jnetworks], [**jNetPcap Wrapper**](jnetpcap-wrapper), [**jNetPcap SDK**][jnetpcap-sdk])
+- Capture and transmit network packets ([**jNetWorks SDK**][jnetworks], [**jNetPcap Wrapper**][jnetpcap-wrapper], [**jNetPcap SDK**][jnetpcap-sdk])
 - Dissect captured packets and use high level API to access headers and data ([**jNetWorks SDK**][jnetworks], [**jNetPcap SDK**][jnetpcap-sdk])
 - IP fragmentation reassembly and tracking ([**jNetWorks SDK**][jnetworks], [**jNetPcap SDK**][jnetpcap-sdk])
 - TCP/UDP/SCTP/QUIC stream reassembly ([**jNetWorks SDK**][jnetworks])
@@ -76,7 +76,7 @@ Here are some ideas to get you started:
 
 [slytechs-web]: <http://www.slytechs.com>
 [slytechs-email]: <mailto:sales@slytechs.com>
-[jnetpcap-sdk]: <https://github.com/slytechs-repos/jnetpcap-wrapper>
+[jnetpcap-wrapper]: <https://github.com/slytechs-repos/jnetpcap-wrapper>
 [jnetpcap-sdk]: <https://github.com/slytechs-repos/jnetpcap-sdk>
 [jnetpcap-sdk-download]: <https://github.com/slytechs-repos/slytechs-repos/releases>
 [jnetpcap-examples]: <https://github.com/slytechs-repos/jnetpcap-examples>
