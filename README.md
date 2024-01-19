@@ -76,11 +76,11 @@ Here are some ideas to get you started:
 
 [slytechs-web]: http://www.slytechs.com
 [slytechs-email]: mailto:sales@slytechs.com
-[jnetpcap-v2]: https://github.com/slytechs-repos/jnetpcap
-[jnetpcap-sdk]: https://github.com/slytechs-repos/jnetpcap-pro
+[jnetpcap-wrapper]: https://github.com/slytechs-repos/jnetpcap-wrapper
+[jnetpcap-sdk]: https://github.com/slytechs-repos/jnetpcap-sdk
 [jnetpcap-sdk-download]: https://github.com/slytechs-repos/slytechs-repos/releases
 [jnetpcap-examples]: https://github.com/slytechs-repos/jnetpcap-examples
-[jnetworks]: http://slytechs.com/jnetworks
-[jnetntapi]: https://www.slytechs.com/jnetntapi
-[protocols]: https://github.com/slytechs-repos/core-protocols
+[jnetworks]: http://slytechs.com/jnetworks-sdk
+[jnetntapi]: https://www.slytechs.com/jnetntapi-sdk
+[protocols]: https://github.com/slytechs-repos/protocol-pack-sdk
 [roadmap]: https://github.com/slytechs-repos/slytechs-repos/wiki/2.-Software-Release-Schedule
