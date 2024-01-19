@@ -5,8 +5,8 @@ Here you will find the following libraries that you can use to build your specia
 
 Feature highlights with what you can do.
 
-- Capture and transmit network packets ([**jNetWorks SDK**][jnetworks], [**jNetPcap Wrapper**](jnetpcap-wrapper) [**jNetPcap SDK**][jnetpcap-sdk])
-- Dissect captured packets and use high level API to access headers and data ([**jNetWorks SDK**][jnetworks], [**jNetPcap SDK**][jnetpcap-sdi])
+- Capture and transmit network packets ([**jNetWorks SDK**][jnetworks], [**jNetPcap Wrapper**](jnetpcap-wrapper), [**jNetPcap SDK**][jnetpcap-sdk])
+- Dissect captured packets and use high level API to access headers and data ([**jNetWorks SDK**][jnetworks], [**jNetPcap SDK**][jnetpcap-sdk])
 - IP fragmentation reassembly and tracking ([**jNetWorks SDK**][jnetworks], [**jNetPcap SDK**][jnetpcap-sdk])
 - TCP/UDP/SCTP/QUIC stream reassembly ([**jNetWorks SDK**][jnetworks])
 - HTTP dechunking and decompression ([**jNetWorks SDK**][jnetworks])
