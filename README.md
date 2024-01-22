@@ -17,7 +17,7 @@ Feature highlights with what you can do.
 Our libraries support both **libpcap** and [**Napatech SmartNIC**][jnetntapi] hardware accelerators for high speed network caputure.
 
 ## Getting Started
-To get started you need to select the main API you wish to use. We offer 2 different APIs depending on your needs. Which ever API you choose the **Protocol Packs** which offer protocol specific APIs such as protocol headers, packet dissection, data reassembly, tracking and analysis, need to be included in addition to that main API modules (ie. [**jNetPcap SDK**][jnetpcap-pro] or [**jNetWorks SDK**][jnetworks].)
+To get started you need to select the main API you wish to use. We offer 2 different APIs depending on your needs. Which ever API you choose the **Protocol Packs** which offer protocol specific APIs such as protocol headers, packet dissection, data reassembly, tracking and analysis, need to be included in addition to that main API modules (ie. [**jNetPcap SDK**][jnetpcap-sdk] or [**jNetWorks SDK**][jnetworks].)
 
 Both of the APIs listed below use the same **Protocol Packs** and at least one of the main APIs needs to be chosen. The **Protocol Packs** do not function on their own. To get protocol level support the [**protocol-pack-sdk**][protocols] module is required at minimum.
 
