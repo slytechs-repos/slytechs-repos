@@ -34,7 +34,7 @@ Extensive protocol support including:
 - Microsoft protocols
 - Media protocols (Voice/Video)
 
-### Coming in Q4 2024
+### Coming in Q1 2025
 
 #### jnetworks-sdk
 High-performance multi-CPU packet processing:
