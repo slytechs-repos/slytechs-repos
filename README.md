@@ -196,10 +196,10 @@ try (PcapFramework framework = new PcapFramework(PcapFramework.VERSION)) {
 ```
 
 ## License Information
+Our modules are licensed as follows:
 
-All modules are available under either:
-- [Apache v2 License](https://www.apache.org/licenses/LICENSE-2.0)
-- [Sly Technologies Free License](https://www.slytechs.com/licensing)
+- jnetpcap-wrapper: Licensed under [Apache v2 License](https://www.apache.org/licenses/LICENSE-2.0)
+- All other modules: Licensed under [Sly Technologies Free License](https://www.slytechs.com/licensing)
   - 5 free developer installations
   - One-time distribution license fee
   - No royalties
