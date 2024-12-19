@@ -1,81 +1,186 @@
-## Network Packet Capture in Java
-Welcome to Sly Technologies main repo. 
+# Network Packet Capture in Java
 
-Here you will find the following libraries that you can use to build your specialized networking apps and do it all in your favorite Java environment. Our libraries use either [Apache v2](https://www.apache.org/licenses/LICENSE-2.0) or [Sly Techs Free License](https://www.slytechs.com/licensing), meaning there is no cost to you for using our software under the terms of the licenses!
+Welcome to Sly Technologies main repository! If you are interested in creating network applications, we have many of the tools you will need to quickly develop your products or complete projects on time. Incorporating our tried and tested libraries into your production environments and applications can help save both time and money.
 
-Feature highlights with what you can do.
+## SDK Architecture
 
-- Capture and transmit network packets ([**jNetWorks SDK**][jnetworks], [**jNetPcap Wrapper**][jnetpcap-wrapper], [**jNetPcap SDK**][jnetpcap-sdk])
-- Dissect captured packets and use high level API to access headers and data ([**jNetWorks SDK**][jnetworks], [**jNetPcap SDK**][jnetpcap-sdk])
-- IP fragmentation reassembly and tracking ([**jNetWorks SDK**][jnetworks], [**jNetPcap SDK**][jnetpcap-sdk])
-- TCP/UDP/SCTP/QUIC stream reassembly ([**jNetWorks SDK**][jnetworks])
-- HTTP dechunking and decompression ([**jNetWorks SDK**][jnetworks])
-- TLS decryption ([**jNetWorks SDK**][jnetworks])
-- Multi-adapter, multi-port and multi-CPU processing and distribution ([**jNetWorks SDK**][jnetworks]
-- and much more...
+Our SDKs are organized into a hierarchical structure that promotes modularity and reuse:
 
-Our libraries support both **libpcap** and [**Napatech SmartNIC**][jnetntapi] hardware accelerators for high speed network caputure.
+### Core Platform
+- **jnet-platform** - Core runtime and support functionality used by all SDKs
+  - Base APIs and utilities
+  - Packet Language (JNPL) for filter expressions
+  - System tables and configuration
+  - Common data structures and protocols
+  - Thread and memory management
+
+### Current Products (Available Now)
+
+#### jnetpcap-sdk
+Java wrapper and API for libpcap with high-level protocol support:
+- Native libpcap integration
+- Packet capture and transmission
+- Protocol header access
+- Live and offline capture
+- IP reassembly
+- Protocol services
+
+#### protocol-sdk
+Extensive protocol support including:
+- TCP/IP protocol family
+- Web protocols (HTTP, TLS)
+- Telecom protocols
+- Database protocols
+- Microsoft protocols
+- Media protocols (Voice/Video)
+
+### Coming in Q1 2025
+
+#### jnetworks-sdk
+High-performance multi-CPU packet processing:
+- Multi-CPU packet distribution
+- Hardware acceleration support
+- Zero-copy architecture
+- Advanced stream processing
+- High-speed packet capture
+- In-line packet forwarding
+- Traffic shaping
+
+#### jnetntapi-sdk
+Napatech SmartNIC integration:
+- SmartNIC hardware acceleration
+- High-speed packet processing
+- Hardware-assisted filtering
+- Advanced NIC features
+
+#### jnetdpdk-sdk
+Intel DPDK integration:
+- DPDK packet processing
+- High-performance networking
+- Poll-mode drivers
+- Memory management
 
 ## Getting Started
-To get started you need to select the main API you wish to use. We offer 2 different APIs depending on your needs. Which ever API you choose the **Protocol Packs** which offer protocol specific APIs such as protocol headers, packet dissection, data reassembly, tracking and analysis, need to be included in addition to that main API modules (ie. [**jNetPcap SDK**][jnetpcap-sdk] or [**jNetWorks SDK**][jnetworks].)
 
-Both of the APIs listed below use the same **Protocol Packs** and at least one of the main APIs needs to be chosen. The **Protocol Packs** do not function on their own. To get protocol level support the [**protocol-pack-sdk**][protocols] module is required at minimum.
+### 1. Basic Packet Capture (jNetPcap SDK)
 
-### [jNetPcap Examples][jnetpcap-examples]
-**jNetPcap SDK** provides a simple, single threaded API very similar to the way that native **libpcap** API works, with some extensions for enabling IPF reassembly and support for protocol services (MAC OUI table lookups, IP address resolution, hexdumps, etc..)
+First, add the dependencies:
+```xml
+<dependency>
+    <groupId>com.slytechs.jnet.jnetpcap</groupId>
+    <artifactId>jnetpcap-api</artifactId>
+    <version>${jnetpcap.version}</version>
+</dependency>
 
-Here is the shortest, fully functional pcap program you can write to read packets from a capture file:
+<dependency>
+    <groupId>com.slytechs.jnet.protocol</groupId>
+    <artifactId>protocol-tcpip</artifactId>
+    <version>${protocol.version}</version>
+</dependency>
+```
+
+Smallest possible example:
 ```java
-try (var pcap = NetPcap.openOffline(PCAP_FILE)) {
-	pcap.loop(3, System.out::println);
+try (var pcap = NetPcap.openOffline("capture.pcap")) {
+    pcap.loop(System.out::println);
 }
 ```
-Produces output:
+
+Advanced example with protocol handling:
+```java
+try (var pcap = NetPcap.openOffline("capture.pcap")) {
+    // Initialize protocol headers once for reuse
+    final Ethernet ethernet = new Ethernet();
+    final Ip4 ip4 = new Ip4();
+    final Tcp tcp = new Tcp();
+    final Http http = new Http();
+
+    // Configure packet formatting
+    pcap.setPacketFormatter(new PacketFormat());
+    
+    pcap.loop(packet -> {
+        // Headers bind to packet's native memory
+        if (packet.hasHeader(ethernet))
+            System.out.println(ethernet);
+
+        if (packet.hasHeader(ip4))
+            System.out.println(ip4);
+
+        if (packet.hasHeader(tcp))
+            System.out.println(tcp);
+
+        if (packet.hasHeader(http))
+            System.out.println(http);
+    });
+}
 ```
-Packet [#1: caplen=54, timestamp=2023-04-13 14:00:19.646005000]
-Packet [#2: caplen=92, timestamp=2023-04-13 14:00:19.718989000]
-Packet [#3: caplen=395, timestamp=2023-04-13 14:00:20.562253000]
+
+### 2. High Performance Processing (jNetWorks SDK)
+
+```xml
+<dependency>
+    <groupId>com.slytechs.jnet.jnetworks</groupId>
+    <artifactId>jnetworks-api</artifactId>
+    <version>${jnetworks.version}</version>
+</dependency>
 ```
 
-### jNetWorks API (Examples coming soon!)
-[**jNetWorks SDK**][jnetworks] provides a more sophisticated API and significantly higher performance for multi-CPU packet capture with support for hardware acceleration. You can chosee to use a simple **libpcap** extension or [**Napatech SmartNIC**][jnetntapi] drivers to hardware accelerate network capture and IPF processing. Perfomance using [**jNetWorks SDK**][jnetworks] is suitable for traffic rates upto 100Gbps (1/10/25/40/100Gbps) with **SmartNICs**. You can configure capture and spread the load of processing the data onto multiple-CPUs in your system, with zero-copy from the NICs to your application thread.
+Multi-CPU capture example:
+```java
+try (NetworkFramework framework = new PcapFramework()) {
+    // Configure the adapter
+    try (Config config = framework.createConfig()) {
+        PortsConfig portsConfig = config.getPortsConfig();
+        portsConfig.enablePort(0);
+        
+        NetworkConfig netConfig = config.getNetworkConfig();
+        netConfig.assignFilter("tcp port 80");
+    }
 
-## Roadmap
+    // Setup capture
+    try (NetTransceiver capture = framework.createTransceiver()) {
+        // Initialize protocol headers once
+        final Tcp tcp = new Tcp();
+        final Http http = new Http();
 
-For latest information about future and current software releases, please see the software release wiki page:
+        capture.forkRxPackets(packet -> {
+            if (packet.hasHeader(tcp) && packet.hasHeader(http)) {
+                System.out.printf("HTTP %s %s%n", 
+                    http.methodString(),
+                    http.uriString());
+            }
+        });
 
-[Software release roadmap][roadmap]
+        capture.startCapture();
+        Thread.sleep(Duration.ofMinutes(1).toMillis());
+        capture.stopCapture();
+    }
+}
+```
 
-## Contact Us
-If you have any questions, please contact us.
+## License Information
 
-**Email:** [sales@slytechs.com][slytechs-email]
+All modules are available under either:
+- [Apache v2 License](https://www.apache.org/licenses/LICENSE-2.0)
+- [Sly Technologies Free License](https://www.slytechs.com/licensing)
+  - 5 free developer installations
+  - One-time distribution license fee
+  - No royalties
+  - Commercial support available (1 or 5 year terms)
 
-**Phone:** 1-315-930-0939 (US NY)
+## About Sly Technologies
 
-**Contact Form:** [www.slytechs.com][slytechs-web] - contact form at the bottom of each page
-<!--
-**slytechs-repos/slytechs-repos** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+We specialize in high-performance network packet capture and analysis solutions for Java. Our libraries are tried and tested in production environments, helping developers save time and money.
 
-Here are some ideas to get you started:
+### Contact Information
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- **Phone:** 1-315-930-0939 (US NY)
+- **Email:** [sales@slytechs.com](mailto:sales@slytechs.com)
+- **Address:** 224 Harrison Street, Syracuse, NY 13202 - USA
+- **Website:** [www.slytechs.com](http://www.slytechs.com) (contact form available)
 
-[slytechs-web]: <http://www.slytechs.com>
-[slytechs-email]: <mailto:sales@slytechs.com>
-[jnetpcap-wrapper]: <https://github.com/slytechs-repos/jnetpcap-wrapper>
-[jnetpcap-sdk]: <https://github.com/slytechs-repos/jnetpcap-sdk>
-[jnetpcap-sdk-download]: <https://github.com/slytechs-repos/slytechs-repos/releases>
-[jnetpcap-examples]: <https://github.com/slytechs-repos/jnetpcap-examples>
-[jnetworks]: <http://slytechs.com/jnetworks-sdk>
-[jnetntapi]: <https://www.slytechs.com/jnetntapi-sdk>
-[protocols]: <https://github.com/slytechs-repos/protocol-pack-sdk>
-[roadmap]: <https://github.com/slytechs-repos/slytechs-repos/wiki/2.-Software-Release-Schedule>
+### Additional Resources
+
+- [Software Release Roadmap](https://github.com/slytechs-repos/slytechs-repos/wiki/2.-Software-Release-Schedule)
+- [Detailed Documentation](https://github.com/slytechs-repos/protocol-pack-sdk)
+- [GitHub Repository](https://github.com/slytechs-repos)
