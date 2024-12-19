@@ -34,7 +34,7 @@ Extensive protocol support including:
 - Microsoft protocols
 - Media protocols (Voice/Video)
 
-### Coming in Q1 2025
+### Coming in Q4 2024
 
 #### jnetworks-sdk
 High-performance multi-CPU packet processing:
@@ -125,35 +125,72 @@ try (var pcap = NetPcap.openOffline("capture.pcap")) {
 </dependency>
 ```
 
-Multi-CPU capture example:
+Multi-CPU capture example with multiple buffers and streams:
 ```java
-try (NetworkFramework framework = new PcapFramework()) {
-    // Configure the adapter
+try (PcapFramework framework = new PcapFramework(PcapFramework.VERSION)) {
+    
+    // Configure multi-port setup with streams and buffers
     try (Config config = framework.createConfig()) {
-        PortsConfig portsConfig = config.getPortsConfig();
-        portsConfig.enablePort(0);
-        
-        NetworkConfig netConfig = config.getNetworkConfig();
-        netConfig.assignFilter("tcp port 80");
+        // Enable multiple ports
+        config.getPortsConfig()
+                .enablePorts(PortIds.portSet(0, 1, 2, 3))
+                .disablePorts(PortIds.portRange(4, 2));
+
+        // Configure receive streams
+        var rxSettings = new StreamSettings()
+                .setRxBufferCount(4)    // Multiple receive buffers
+                .setRxStreamCount(4);    // Multiple stream processors
+
+        // Setup streams with hash-based distribution
+        int[] streamIds = config.getBufferConfig()
+                .setupRxStreams(rxSettings);
+
+        // Configure TCP filtering with hash distribution
+        config.getNetworkConfig()
+                .assignFilter("tcp")
+                .priority(20)
+                .ids(streamIds)
+                .hash(HashMode.HASH_5_TUPLE_SORTED);
     }
 
-    // Setup capture
+    // Start capture with multiple processing threads
     try (NetTransceiver capture = framework.createTransceiver()) {
-        // Initialize protocol headers once
-        final Tcp tcp = new Tcp();
-        final Http http = new Http();
+        // Fork stream processors (4 worker threads)
+        capture.forkRxStreams(stream -> {
+            RxPacket packet = new RxPacket();
+            long totalSize = 0;
 
-        capture.forkRxPackets(packet -> {
-            if (packet.hasHeader(tcp) && packet.hasHeader(http)) {
-                System.out.printf("HTTP %s %s%n", 
-                    http.methodString(),
-                    http.uriString());
+            while (stream.isActive()) {
+                if (stream.get(packet, 100))
+                    continue;
+
+                totalSize += packet.length();
+                stream.release(packet);
             }
-        });
 
+            System.out.printf("Stream processed %d bytes%n", totalSize);
+        }, 4);
+
+        // Fork buffer processors (2 worker threads)
+        capture.forkRxBuffers(buffer -> {
+            RxSegment segment = buffer.newSegment();
+            long totalSize = 0;
+
+            while (buffer.isActive()) {
+                if (buffer.get(segment, 100) || segment.isEmpty())
+                    continue;
+
+                totalSize += segment.byteSize();
+                buffer.release(segment);
+            }
+
+            System.out.printf("Buffer processed %d bytes%n", totalSize);
+        }, 2);
+
+        // Start capture and wait
         capture.startCapture();
-        Thread.sleep(Duration.ofMinutes(1).toMillis());
-        capture.stopCapture();
+        capture.awaitCaptureStart();
+        capture.awaitCaptureStop();
     }
 }
 ```
